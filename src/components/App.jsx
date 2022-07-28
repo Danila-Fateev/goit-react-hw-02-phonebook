@@ -22,7 +22,6 @@ export class App extends Component {
 
     if (!contacts.find(el => el.name === contact.name)) {
       contacts.push(contact);
-      console.log(contacts);
       e.target.reset();
       this.setState({
         name: contact.name,
