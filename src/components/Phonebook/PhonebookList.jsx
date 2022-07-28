@@ -1,8 +1,11 @@
-export default function PhonebookList({ name, number }) {
+export default function PhonebookList({ id, name, number, deleteContact }) {
   return (
     <>
-      <li>
+      <li id={id}>
         {name}: {number}
+        <button type="button" onClick={deleteContact}>
+          Delete
+        </button>
       </li>
     </>
   );

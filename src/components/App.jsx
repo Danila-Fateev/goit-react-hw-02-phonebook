@@ -38,6 +38,18 @@ export class App extends Component {
     this.setState({ [name]: value });
   };
 
+  deleteContact = e => {
+    const itemID = e.target.parentNode.id;
+    const itemFiltered = this.state.contacts.filter(el => el.id === itemID);
+    const contactIndex = this.state.contacts.indexOf(...itemFiltered);
+    const listContacts = this.state.contacts;
+    listContacts.splice(contactIndex, 1);
+
+    this.setState({
+      contacts: listContacts,
+    });
+  };
+
   render() {
     return (
       <div
@@ -55,7 +67,13 @@ export class App extends Component {
         <h2>Contacts</h2>
         <ul>
           {this.state.contacts.map(({ name, number, id }) => (
-            <PhonebookList key={id} name={name} number={number} />
+            <PhonebookList
+              id={id}
+              key={id}
+              name={name}
+              number={number}
+              deleteContact={this.deleteContact}
+            />
           ))}
         </ul>
       </div>
