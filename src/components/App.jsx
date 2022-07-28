@@ -17,20 +17,9 @@ export class App extends Component {
     const contact = {
       name,
       number,
-    };
-
-    contacts.forEach(el => {
-      if (el.name === name || el.number === number) {
-        alert(`${name} is already in contacts!`);
-      }
-    });
-    contacts.push(contact);
-    this.setState({
-      name: '',
-      number: '',
       id: nanoid(),
-    });
-
+    };
+    contacts.push(contact);
     e.target.reset();
 
     console.log(contacts);
@@ -38,7 +27,9 @@ export class App extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
+    console.log(name, value);
     this.setState({ [name]: value });
+    console.log(this.state);
   };
 
   render() {
@@ -54,8 +45,8 @@ export class App extends Component {
           handleChange={this.handleChange}
           onSubmitForm={this.onSubmitForm}
         />
-        {this.state.contacts.map(({ name, number }) => (
-          <PhonebookList name={name} number={number} />
+        {this.state.contacts.map(({ name, number, id }) => (
+          <PhonebookList key={id} name={name} number={number} />
         ))}
       </div>
     );
