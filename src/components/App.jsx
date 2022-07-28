@@ -19,17 +19,19 @@ export class App extends Component {
       number,
       id: nanoid(),
     };
-    contacts.push(contact);
+    if (!contacts.find(el => el.name === contact.name)) {
+      contacts.push(contact);
+      console.log(contacts);
+      e.target.reset();
+      return;
+    }
     e.target.reset();
-
-    console.log(contacts);
+    alert(`${contact.name} is already in contacts`);
   };
 
   handleChange = e => {
     const { name, value } = e.target;
-    console.log(name, value);
     this.setState({ [name]: value });
-    console.log(this.state);
   };
 
   render() {
