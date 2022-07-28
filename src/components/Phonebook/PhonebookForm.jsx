@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function PhonebookForm({ handleChange, onSubmitForm }) {
   return (
     <form onSubmit={onSubmitForm}>
@@ -27,3 +29,8 @@ export default function PhonebookForm({ handleChange, onSubmitForm }) {
     </form>
   );
 }
+
+PhonebookForm.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  onSubmitForm: PropTypes.func.isRequired,
+};

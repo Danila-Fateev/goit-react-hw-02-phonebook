@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function PhonebookFilter({ changeFilter }) {
   return (
     <label>
@@ -6,3 +8,7 @@ export default function PhonebookFilter({ changeFilter }) {
     </label>
   );
 }
+
+PhonebookFilter.propTypes = {
+  changeFilter: PropTypes.func.isRequired,
+};
