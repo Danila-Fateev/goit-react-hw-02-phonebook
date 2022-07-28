@@ -21,11 +21,9 @@ export class App extends Component {
     };
 
     if (!contacts.find(el => el.name === contact.name)) {
-      contacts.push(contact);
       e.target.reset();
       this.setState({
-        name: contact.name,
-        number: contact.number,
+        contacts: [contact, ...contacts],
       });
       return;
     }
@@ -49,10 +47,12 @@ export class App extends Component {
           color: '#010101',
         }}
       >
+        <h1>Phonebook</h1>
         <PhonebookForm
           handleChange={this.handleChange}
           onSubmitForm={this.onSubmitForm}
         />
+        <h2>Contacts</h2>
         <ul>
           {this.state.contacts.map(({ name, number, id }) => (
             <PhonebookList key={id} name={name} number={number} />
