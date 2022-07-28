@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import styles from './Phonebook.module.css';
 
 export default function PhonebookForm({ handleChange, onSubmitForm }) {
   return (
-    <form onSubmit={onSubmitForm}>
-      <label>
+    <form className={styles.form} onSubmit={onSubmitForm}>
+      <label className={styles.labelForm}>
         Name
         <input
           type="text"
@@ -14,7 +15,7 @@ export default function PhonebookForm({ handleChange, onSubmitForm }) {
           onChange={handleChange}
         />
       </label>
-      <label>
+      <label className={styles.labelForm}>
         Number
         <input
           type="tel"
@@ -25,7 +26,9 @@ export default function PhonebookForm({ handleChange, onSubmitForm }) {
           onChange={handleChange}
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button className={styles.btnForm} type="submit">
+        Add contact
+      </button>
     </form>
   );
 }

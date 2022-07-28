@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
+import styles from './Phonebook.module.css';
 
 export default function PhonebookList({ id, name, number, deleteContact }) {
   return (
     <>
-      <li id={id}>
+      <li className={styles.listItem} id={id}>
         {name}: {number}
-        <button type="button" onClick={deleteContact}>
+        <button
+          className={styles.itemBtn}
+          type="button"
+          onClick={deleteContact}
+        >
           Delete
         </button>
       </li>
