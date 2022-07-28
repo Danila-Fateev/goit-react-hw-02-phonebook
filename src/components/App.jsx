@@ -19,14 +19,21 @@ export class App extends Component {
       number,
       id: nanoid(),
     };
+
     if (!contacts.find(el => el.name === contact.name)) {
       contacts.push(contact);
       console.log(contacts);
       e.target.reset();
+      this.setState({
+        name: contact.name,
+        number: contact.number,
+      });
       return;
     }
     e.target.reset();
-    alert(`${contact.name} is already in contacts`);
+    alert(
+      `You already have contact with name '${contact.name}' or number '${contact.number}'`
+    );
   };
 
   handleChange = e => {
@@ -47,9 +54,11 @@ export class App extends Component {
           handleChange={this.handleChange}
           onSubmitForm={this.onSubmitForm}
         />
-        {this.state.contacts.map(({ name, number, id }) => (
-          <PhonebookList key={id} name={name} number={number} />
-        ))}
+        <ul>
+          {this.state.contacts.map(({ name, number, id }) => (
+            <PhonebookList key={id} name={name} number={number} />
+          ))}
+        </ul>
       </div>
     );
   }
