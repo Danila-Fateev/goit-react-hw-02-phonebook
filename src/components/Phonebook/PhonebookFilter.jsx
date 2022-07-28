@@ -1,7 +1,8 @@
-export default function PhonebookFilter() {
+export default function PhonebookFilter({ changeFilter }) {
   return (
     <label>
-      <input type="text" />
+      Find contacts by name
+      <input type="text" onChange={changeFilter} />
     </label>
   );
 }
