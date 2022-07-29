@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import styles from './Phonebook.module.css';
 
 export default function PhonebookList({ filteredItems, deleteContact }) {
+  console.log(filteredItems);
   return (
     <>
-      {filteredItems.map(({ number, id, name }) => {
+      {filteredItems.map(({ id, name, number }) => (
         <li key={id} className={styles.listItem} id={id}>
           {name}: {number}
           <button
@@ -14,8 +15,8 @@ export default function PhonebookList({ filteredItems, deleteContact }) {
           >
             Delete
           </button>
-        </li>;
-      })}
+        </li>
+      ))}
     </>
   );
 }
