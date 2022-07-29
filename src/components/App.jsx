@@ -62,6 +62,7 @@ export class App extends Component {
     );
     return filteredContacts;
   };
+
   deleteContact = e => {
     const itemID = e.target.parentNode.id;
     const itemFiltered = this.state.contacts.filter(el => el.id === itemID);
