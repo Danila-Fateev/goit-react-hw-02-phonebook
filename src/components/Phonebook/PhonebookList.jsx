@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styles from './Phonebook.module.css';
 
 export default function PhonebookList({ filteredItems, deleteContact }) {
-  console.log(filteredItems);
   return (
     <>
       {filteredItems.map(({ id, name, number }) => (
