@@ -14,16 +14,18 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   onSubmitForm = e => {
     e.preventDefault();
-    const { name, number, contacts } = this.state;
+    const { contacts } = this.state;
+
+    const submitContactName = e.currentTarget.elements.name.value;
+    const submitContactNumber = e.currentTarget.elements.number.value;
+
     const contact = {
-      name,
-      number,
+      name: submitContactName,
+      number: submitContactNumber,
       id: nanoid(),
     };
 
@@ -84,10 +86,7 @@ export class App extends Component {
         }}
       >
         <h1>Phonebook</h1>
-        <PhonebookForm
-          handleChange={this.handleChange}
-          onSubmitForm={this.onSubmitForm}
-        />
+        <PhonebookForm onSubmitForm={this.onSubmitForm} />
         <h2>Contacts</h2>
         <PhonebookFilter
           changeFilter={this.changeFilter}
