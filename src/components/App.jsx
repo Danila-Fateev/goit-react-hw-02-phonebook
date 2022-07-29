@@ -73,7 +73,7 @@ export class App extends Component {
   };
 
   render() {
-    const filteredList = this.filterListByName();
+    const filteredItems = this.filterListByName();
 
     return (
       <div
@@ -97,15 +97,10 @@ export class App extends Component {
             width: '500px',
           }}
         >
-          {filteredList.map(({ name, number, id }) => (
-            <PhonebookList
-              id={id}
-              key={id}
-              name={name}
-              number={number}
-              deleteContact={this.deleteContact}
-            />
-          ))}
+          <PhonebookList
+            filteredItems={filteredItems}
+            deleteContact={this.deleteContact}
+          />
         </ul>
       </div>
     );
