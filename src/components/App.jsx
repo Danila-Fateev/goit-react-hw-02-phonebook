@@ -89,19 +89,15 @@ export class App extends Component {
           onSubmitForm={this.onSubmitForm}
         />
         <h2>Contacts</h2>
-        <PhonebookFilter changeFilter={this.changeFilter} />
-        <ul
-          style={{
-            listStyle: 'none',
-            padding: '25px',
-            width: '500px',
-          }}
-        >
-          <PhonebookList
-            filteredItems={filteredItems}
-            deleteContact={this.deleteContact}
-          />
-        </ul>
+        <PhonebookFilter
+          changeFilter={this.changeFilter}
+          value={this.state.filter}
+        />
+
+        <PhonebookList
+          filteredItems={filteredItems}
+          deleteContact={this.deleteContact}
+        />
       </div>
     );
   }

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-export default function PhonebookFilter({ changeFilter }) {
+export default function PhonebookFilter({ changeFilter, value }) {
   return (
     <label>
       Find contacts by name
-      <input type="text" onChange={changeFilter} />
+      <input type="text" onChange={changeFilter} value={value} />
     </label>
   );
 }

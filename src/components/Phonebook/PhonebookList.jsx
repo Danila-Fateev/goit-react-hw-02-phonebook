@@ -3,7 +3,13 @@ import styles from './Phonebook.module.css';
 
 export default function PhonebookList({ filteredItems, deleteContact }) {
   return (
-    <>
+    <ul
+      style={{
+        listStyle: 'none',
+        padding: '25px',
+        width: '500px',
+      }}
+    >
       {filteredItems.map(({ id, name, number }) => (
         <li key={id} className={styles.listItem} id={id}>
           {name}: {number}
@@ -16,7 +22,7 @@ export default function PhonebookList({ filteredItems, deleteContact }) {
           </button>
         </li>
       ))}
-    </>
+    </ul>
   );
 }
 
