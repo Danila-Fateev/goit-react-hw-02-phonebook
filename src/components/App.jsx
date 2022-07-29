@@ -27,7 +27,9 @@ export class App extends Component {
       id: nanoid(),
     };
 
-    if (!contacts.find(el => el.name === contact.name)) {
+    if (
+      !contacts.find(el => el.name.toLowerCase() === contact.name.toLowerCase())
+    ) {
       e.target.reset();
       this.setState({
         contacts: [contact, ...contacts],
