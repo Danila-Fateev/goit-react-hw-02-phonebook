@@ -11,4 +11,5 @@ export default function PhonebookFilter({ changeFilter, value }) {
 
 PhonebookFilter.propTypes = {
   changeFilter: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
